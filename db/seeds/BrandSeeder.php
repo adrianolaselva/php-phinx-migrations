@@ -14,9 +14,7 @@ class BrandSeeder extends AbstractSeed
      */
     public function run()
     {
-
-        $posts = $this->table('brands');
-        $posts->insert([
+        $data = [
             [
                 'id' => 1,
                 'name' => 'Visa',
@@ -80,7 +78,24 @@ class BrandSeeder extends AbstractSeed
             [
                 'id' => 16,
                 'name' => 'Aura',
+            ],
+            [
+                'id' => 17,
+                'name' => 'Teste',
             ]
-        ])->save();
+        ];
+
+        foreach ($data as $value)
+        {
+            if(!$this->fetchAll("select * from brands where id={$value['id']}"))
+            {
+                $this->table('brands')->insert($value)->save();
+                continue;
+            }
+
+            $this->execute("update brands set name='{$value['name']}' where id={$value['id']}");
+        }
     }
+
+
 }
