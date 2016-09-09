@@ -1,0 +1,12 @@
+{
+    "name": "adrianolaselva/phinx",
+    "authors": [
+        {
+            "name": "Adriano M. La Selva",
+            "email": "adrianolaselva@gmail.com"
+        }
+    ],
+    "require": {
+        "robmorgan/phinx": "^0.6.4"
+    }
+}
